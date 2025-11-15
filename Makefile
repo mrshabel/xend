@@ -7,6 +7,9 @@ build:
 	go build main.go -o ./bin/xend
 
 release:
+	goreleaser release
 
 pre-release:
 	goreleaser release --snapshot --clean
+	@echo "Validating release files..."
+	goreleaser check
